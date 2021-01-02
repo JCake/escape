@@ -63,7 +63,7 @@ export class KeypadComponent implements OnInit {
   }
 
   press(num){
-    this.entryResult = '';
+    this.entryResult = 'neutral';
     this.input += `${num}`;
     if(this.input.length === this.answer.length){
       console.log('checking ' + this.input);
