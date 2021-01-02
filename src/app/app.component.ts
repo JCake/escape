@@ -14,8 +14,8 @@ export class AppComponent implements OnInit {
     for(let i = 0; i < 3; i++){
       this.numbers.push(Math.floor(Math.random() * 10));
       this.positions.push({
-        top: (Math.floor(Math.random() * 50) + 200 + 50 * i) + 'px', 
-        left: (Math.floor(Math.random() * 60) + 60 * i) + 'px' })
+        top: (Math.floor(Math.random() * 60) + 200 + 60 * i) + 'px', 
+        left: (Math.floor(Math.random() * 70) + 70 * i) + 'px' })
     }
 
   }

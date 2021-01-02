@@ -16,10 +16,29 @@
   vertical-align: top;
 }
 
+.neutral {
+  background-color: white;
+}
+
 .correct {
   background-color: lightblue;
 }
 
 .incorrect {
-  background-color: red;
+  -webkit-animation-name: flash;
+  -webkit-animation-duration: 600ms;
+  animation-name: flash;
+  animation-duration: 600ms;
+}
+
+@keyframes flash {
+  0%,
+  50%,
+  100% {
+    background-color: red;
+  }
+  25%,
+  75% {
+    background-color: white;
+  }
 }
