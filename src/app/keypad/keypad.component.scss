@@ -1,0 +1,17 @@
+.keypad {
+  border: 1px black solid;
+  display: inline-block;
+  font-family: monospace;
+}
+
+.numberButtons {
+  button {
+    margin: 0.5em;
+    width: 1.5em;
+    font-size: large;
+  }
+}
+
+.closeButton {
+  vertical-align: top;
+}

@@ -1,0 +1,33 @@
+<div (click)="focus()" [@focusClose]="state" (@focusClose.done)="activateButtons()" class="keypad">
+    <div *ngIf="!clickableButtons" style="padding: 0.5em">
+        <div>7 8 9</div>
+        <div>4 5 6</div>
+        <div>1 2 3</div>
+        <div>&nbsp;&nbsp;0&nbsp;&nbsp;</div>
+    </div>
+    <div *ngIf="clickableButtons">
+        <div class="numberButtons">
+            <div>
+                <button>7</button>
+                <button>8</button>
+                <button>9</button>
+            </div>
+            <div>
+                <button>4</button>
+                <button>5</button>
+                <button>6</button>
+            </div>
+            <div>
+                <button>1</button>
+                <button>2</button>
+                <button>3</button>
+            </div>     
+            <div>
+                <button style="visibility: hidden;">0</button>
+                <button>0</button>
+            </div>       
+        </div>
+    </div>
+</div>
+<button class="closeButton" *ngIf="state === 'focus'" (click)="close()">X</button>
+
