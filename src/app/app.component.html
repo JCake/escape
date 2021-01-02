@@ -1,3 +1,10 @@
 <!-- Key pad -->
-<app-keypad></app-keypad>
+<app-keypad [answer]="numbers"></app-keypad>
 <!-- Padlock -->
+
+<!--clues-->
+<ng-container *ngIf="numbers.length > 0">
+  <div class="number" [ngStyle]="positions[0]">{{numbers[0]}}</div>
+  <div class="number" [ngStyle]="positions[1]">{{numbers[1]}}</div>
+  <div class="number" [ngStyle]="positions[2]">{{numbers[2]}}</div>
+</ng-container>

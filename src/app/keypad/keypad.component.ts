@@ -1,6 +1,6 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
 import { NONE_TYPE } from '@angular/compiler';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 const focus = 'focus';
 const closed = 'closed';
@@ -31,8 +31,14 @@ const closed = 'closed';
   styleUrls: ['./keypad.component.scss']
 })
 export class KeypadComponent implements OnInit {
+
+  @Input()
+  answer: number[];
+
   state = closed;
   clickableButtons = false;
+  input = '';
+  entryResult;
 
   constructor() { }
 
@@ -46,6 +52,7 @@ export class KeypadComponent implements OnInit {
   close() {
     this.state = closed;
     this.clickableButtons = false;
+    this.input = '';
   }
 
   activateButtons() {
@@ -53,6 +60,15 @@ export class KeypadComponent implements OnInit {
       this.clickableButtons = true;
     }
     
+  }
+
+  press(num){
+    this.input += `${num}`;
+    if(this.input.length === this.answer.length){
+      console.log('checking ' + this.input);
+      this.entryResult = (this.input === this.answer.join('')) ? 'correct' : 'incorrect';
+      this.input = '';
+    }
   }
 
 }

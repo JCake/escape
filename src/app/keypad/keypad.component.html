@@ -1,4 +1,4 @@
-<div (click)="focus()" [@focusClose]="state" (@focusClose.done)="activateButtons()" class="keypad">
+<div (click)="focus()" [@focusClose]="state" (@focusClose.done)="activateButtons()" class="keypad" [ngClass]="entryResult">
     <div *ngIf="!clickableButtons" style="padding: 0.5em">
         <div>7 8 9</div>
         <div>4 5 6</div>
@@ -8,19 +8,19 @@
     <div *ngIf="clickableButtons">
         <div class="numberButtons">
             <div>
-                <button>7</button>
-                <button>8</button>
-                <button>9</button>
+                <button (click)="press(7)">7</button>
+                <button (click)="press(8)">8</button>
+                <button (click)="press(9)">9</button>
             </div>
             <div>
-                <button>4</button>
-                <button>5</button>
-                <button>6</button>
+                <button (click)="press(4)">4</button>
+                <button (click)="press(5)">5</button>
+                <button (click)="press(6)">6</button>
             </div>
             <div>
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
+                <button (click)="press(1)">1</button>
+                <button (click)="press(2)">2</button>
+                <button (click)="press(3)">3</button>
             </div>     
             <div>
                 <button style="visibility: hidden;">0</button>
