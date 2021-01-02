@@ -1,0 +1,19 @@
+<div class="lock" [@focusClose]="state" (click)="focus()">
+    <div>
+        <div style="position: absolute" [ngStyle]="styles[topIndex % 4]">I</div> 
+        <div style="position: absolute" [ngStyle]="styles[(topIndex + 1) % 4]">V</div>
+        <div style="position: absolute" [ngStyle]="styles[(topIndex + 2) % 4]">X</div>
+        <div style="position: absolute" [ngStyle]="styles[(topIndex + 3) % 4]">XV</div>
+    </div>
+</div>
+<div class="buttons" *ngIf="state === 'focus'" >
+<button class="closeButton" (click)="close()">X</button>
+<div class="upButton" (click)="up()">
+    <mat-icon>arrow_circle_up</mat-icon>
+</div>
+<div class="downButton" (click)="down()">
+    <mat-icon>arrow_circle_down</mat-icon>
+</div>
+</div>
+
+

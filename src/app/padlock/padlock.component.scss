@@ -1,0 +1,31 @@
+.lock {
+  display: inline-block;
+  border: 1px solid black;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  font-size: "x-small";
+  position: relative;
+}
+
+.buttons {
+  vertical-align: top;
+  display: inline-block;
+}
+
+.upButton {
+  padding-top: 15px;
+}
+
+.upButton,
+.downButton {
+  size: 2em;
+}
+
+.upButton:hover {
+  cursor: pointer;
+}
+
+.downButton:hover {
+  cursor: pointer;
+}
