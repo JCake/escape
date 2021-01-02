@@ -13,6 +13,10 @@ export class AppComponent implements OnInit {
   lockOpen = false;
   numbers = [];
   positions = [];
+  lightsOn = [false, true, false, true, false];
+  lightsOff = this.lightsOn.map((val) => !val);
+  lights = this.lightsOn.slice();
+  lightStatus = 'lights-on';
   escaped = false;
 
 
@@ -37,9 +41,20 @@ export class AppComponent implements OnInit {
     for(let i = 0; i < 3; i++){
       this.numbers.push(Math.floor(Math.random() * 10));
       this.positions.push({
-        top: (Math.floor(Math.random() * 60) + 200 + 60 * i) + 'px', 
-        left: (Math.floor(Math.random() * 70) + 70 * i) + 'px' })
+        top: (Math.floor(Math.random() * 55) + 220 + 60 * i) + 'px', 
+        left: (Math.floor(Math.random() * 65) + 70 * i) + 'px' })
     }
 
+  }
+
+  toggle(i){
+    this.lights[i] = !this.lights[i];
+    if(this.lights.every((value, index) => value === this.lightsOn[index])){
+      this.lightStatus = 'lights-on';
+    } else if(this.lights.every((value, index) => value === this.lightsOff[index])){
+      this.lightStatus = 'lights-off';
+    } else {
+      this.lightStatus = 'lights-dim';
+    }
   }
 }

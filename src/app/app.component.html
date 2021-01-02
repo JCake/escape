@@ -1,17 +1,26 @@
-<!-- Key pad -->
-<app-keypad [answer]="numbers" style="display: inline-block" (solved)="escaped = true"></app-keypad>
-<!-- Padlock -->
-<app-padlock style="display:inline-block; padding-left: 5em" [solution]="lockPattern" (solved)="lockOpen = true"></app-padlock>
-<!--clues-->
-<span *ngIf="lockOpen"> - Blacklight found and attached to cursor!</span>
-<div style="padding-top: 8px">
-  <i>I look {{startUp ? 'up': 'down'}} then {{startUp ? 'down': 'up'}} then {{startUp ? 'up': 'down'}} 
-    {{lastNumTimes === 1 ? 'once' : (lastNumTimes === 2 ? 'twice' : 'thrice')}} more</i> </div>
-<ng-container *ngIf="numbers.length > 0 && lockOpen">
-  <div class="number" [ngStyle]="positions[0]">{{numbers[0]}}</div>
-  <div class="number" [ngStyle]="positions[1]">{{numbers[1]}}</div>
-  <div class="number" [ngStyle]="positions[2]">{{numbers[2]}}</div>
-</ng-container>
-<div *ngIf="escaped" style="position: absolute; top: 50%; left: 50%; font-size: 5em">
-  ESCAPED!!
+<div [ngClass]="lightStatus" class="room">
+  <!-- Key pad -->
+  <app-keypad [answer]="numbers" style="display: inline-block" (solved)="escaped = true"></app-keypad>
+  <!-- Padlock -->
+  <app-padlock style="display:inline-block; padding-left: 4em" [solution]="lockPattern" (solved)="lockOpen = true"></app-padlock>
+
+  <div style="display: inline-block; margin-left: 4em" class="light-panel">
+    <div *ngFor="let light of lights; let i = index" class="light-switch" [ngClass]="{'dark': light}" (click)="toggle(i)">
+
+    </div>
+    <div style="text-align: center;">Zebra Brand Light Panel</div>
+  </div>
+  <!--clues-->
+  <span *ngIf="lockOpen"> - Blacklight found and attached to cursor!</span>
+  <div style="padding-top: 8px">
+    <i>I look {{startUp ? 'up': 'down'}} then {{startUp ? 'down': 'up'}} then {{startUp ? 'up': 'down'}} 
+      {{lastNumTimes === 1 ? 'once' : (lastNumTimes === 2 ? 'twice' : 'thrice')}} more</i> </div>
+  <ng-container *ngIf="numbers.length > 0 && lockOpen">
+    <div class="number" [ngStyle]="positions[0]">{{numbers[0]}}</div>
+    <div class="number" [ngStyle]="positions[1]">{{numbers[1]}}</div>
+    <div class="number" [ngStyle]="positions[2]">{{numbers[2]}}</div>
+  </ng-container>
+  <div *ngIf="escaped" style="position: absolute; top: 50%; left: 50%; font-size: 5em">
+    ESCAPED!!
+  </div>
 </div>

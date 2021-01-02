@@ -72,7 +72,7 @@ export class KeypadComponent implements OnInit {
       console.log('checking ' + this.input);
       this.entryResult = (this.input === this.answer.join('')) ? 'correct' : 'incorrect';
       this.input = '';
-      if(this.entryResult = 'correct'){
+      if(this.entryResult === 'correct'){
         this.solved.emit();
       }
     }

@@ -1,10 +1,46 @@
+.room {
+  width: 90vw;
+  height: 90vh;
+  padding: 1em;
+}
+
 .number {
   opacity: 0;
-  font-size: large;
+  font-size: x-large;
   position: absolute;
   width: 48px;
   height: 48px;
+  color: #fcfcfc;
 }
 .number:hover {
   opacity: 1;
+  cursor: default;
+}
+.light-panel {
+  height: 85px;
+  width: 160px;
+  border: 1px solid black;
+  border-radius: 5%;
+}
+.light-switch {
+  display: inline-block;
+  height: 50px;
+  width: 20px;
+  border: 1px solid black;
+  margin: 5px;
+}
+.dark {
+  background-color: black;
+}
+
+.lights-on {
+  background-color: #ffffff;
+}
+
+.lights-off {
+  background-color: #333333;
+}
+
+.lights-dim {
+  background-color: #fafafa;
 }
