@@ -27,6 +27,9 @@
                 <button (click)="press(0)">0</button>
             </div>       
         </div>
+        <div class="screen">
+            {{input}}
+        </div>
     </div>
 </div>
 <button class="closeButton" *ngIf="state === 'focus'" (click)="close()">X</button>
