@@ -1,6 +1,6 @@
 import { trigger, state, style, transition, animate } from '@angular/animations';
-import { NONE_TYPE } from '@angular/compiler';
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, Output } from '@angular/core';
+import { EventEmitter } from '@angular/core';
 
 const focus = 'focus';
 const closed = 'closed';
@@ -40,6 +40,9 @@ export class KeypadComponent implements OnInit {
   input = '';
   entryResult;
 
+  @Output()
+  solved = new EventEmitter();
+
   constructor() { }
 
   ngOnInit(): void {
@@ -69,6 +72,9 @@ export class KeypadComponent implements OnInit {
       console.log('checking ' + this.input);
       this.entryResult = (this.input === this.answer.join('')) ? 'correct' : 'incorrect';
       this.input = '';
+      if(this.entryResult = 'correct'){
+        this.solved.emit();
+      }
     }
   }
 
